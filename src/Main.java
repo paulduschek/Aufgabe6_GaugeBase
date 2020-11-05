@@ -11,7 +11,10 @@ import javafx.stage.Stage;
 
 public class Main extends Application
 {
-    GaugeBase gb = new GaugeBase();
+    Brunmayr b = new Brunmayr();
+    Duschek d = new Duschek();
+    Gnadlinger g = new Gnadlinger();
+    Kadletz k = new Kadletz();
     TextField txtValue = new TextField();
 
     public static void main(String[] args) {
@@ -27,7 +30,11 @@ public class Main extends Application
 
                 try {
                     int v = Integer.parseInt(txtValue.getText());
-                    gb.setValue(v);
+                    b.setValue(v);
+                    d.setValue(v);
+                    g.setValue(v);
+                    k.setValue(v);
+                    txtValue.clear();
                 }
                 catch(Exception ex) {
                     System.out.println("Input Exception!");
@@ -36,8 +43,10 @@ public class Main extends Application
             }
         };
 
-        gb.init(500, 500);
-        gb.setValue(45);
+        b.init(300, 300);
+        d.init(300, 300);
+        g.init(300, 300);
+        k.init(300, 300);
 
         Button btnValue = new Button();
         btnValue.setText("New Value");
@@ -45,8 +54,8 @@ public class Main extends Application
 
         VBox vBox = new VBox();
         vBox.setPadding(new Insets(10, 50, 50, 50));
-        vBox.setSpacing(20);
-        vBox.getChildren().addAll(gb, txtValue, btnValue);
+        vBox.setSpacing(1);
+        vBox.getChildren().addAll(b, d, g, k, txtValue, btnValue);
 
         //Creating a Scene
         Scene scene = new Scene(vBox);
